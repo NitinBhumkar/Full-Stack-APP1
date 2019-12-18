@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  catalog-service:
+    image: nitinbhumkar24/catalog-service
+    ports: 
+     - "80:80"
+  redis:
+    image: redis:alpine
+  review-service:
+    image: nitinbhumkar24/review-service
+    ports:
+    - "90:90"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.01'
+          memory: 50M
+        reservations:
+          cpus: '0.001'
+          memory: 20M
+  order-service:
+    image: nitinbhumkar24/order-service
+    ports:
+    - "100:100"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.01'
+          memory: 50M
+        reservations:
+          cpus: '0.001'
+          memory: 20M
+
