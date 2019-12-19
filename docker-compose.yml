@@ -23,7 +23,7 @@ services:
   order-service:
     image: nitinbhumkar24/order-service
     ports:
-    - "95:100"
+    - "300:300"
     restart: always
     deploy:
       resources:
